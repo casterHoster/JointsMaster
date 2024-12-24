@@ -22,6 +22,11 @@ public class ProjectileSpawner : MonoBehaviour
         _projectilesCount++;
     }
 
+    private void OnDisable()
+    {
+        _catapultShoot.Shooted -= DecreaseCount;
+    }
+
     private void Update()
     {
         if (_catapultStick.transform.position == _catapultStickInitialPosition && _projectilesCount < _limitProjectiles)
